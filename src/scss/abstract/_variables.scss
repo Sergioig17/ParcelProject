@@ -1,0 +1,60 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+$colors: (
+    primary: #d6f577,
+    secondary: #64723d,
+    tertiary: #6B8E23,
+    quaternary: #556B2F,
+    accent: #73ff00,
+    background: #464646,
+    text: #000000,
+    text-light: #ffffff,
+    light: #ffffff,
+    dark: #000000,
+    gray: #bdc3c7,
+);
+
+
+
+/// @author Sergio
+/// @group Tipografía
+/// @type Map
+/// Escala de tamaños de fuente
+$font-sizes: (
+    xs: 1.6rem,
+    s: 1.8rem,
+    m: 2rem,
+    l: 2.5rem,
+    xl: 3rem,
+    xxl: 5rem
+);
+
+$font-family: "Barlow Condensed","Open Sans", "sans-serif";
+$font-title: "Rajdhani", "sans-serif";
+$font-weight: (
+    light: 300,
+    regular: 400,
+    bold: 700
+);
+
+@function font-weight($weight) {
+    @return map.get($font-weight, $weight);
+}
+/// Obtiene un color de la paleta por su nombre
+/// @author Sergio
+/// @group Colores
+/// @param {String} $name - Nombre del color a obtener
+/// @returns {Color} Valor del color
+@function color($name) {
+    @return map.get($colors, $name);
+}
+
+/// Obtiene un tamaño de fuente de la escala por su nombre
+/// @author Sergio
+/// @group Tipografía
+/// @param {String} $size - Tamaño de fuente a obtener
+/// @returns {Length} Valor del tamaño de fuente
+@function font-size($size) {
+    @return map.get($font-sizes, $size);
+}

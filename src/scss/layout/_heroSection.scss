@@ -1,0 +1,53 @@
+@use "../abstract" as core;
+@use "../componentes/_index" as comp;
+.hero {
+    @include core.layout_basico;
+    height: 50rem;
+    position: relative;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        width: fit-content;
+        animation: heroPan 10s linear infinite;
+
+        &__img {
+            width: 300rem;
+            height: 50rem;
+            background: url("../assets/hero.svg") no-repeat left center;
+            background-size: 300rem 50rem;
+            flex-shrink: 0;
+        }
+    }
+
+    &__title {
+        @include core.center;
+        grid-column: 4/7;
+        grid-row: 3/4;
+        &--text {
+            @include comp.title;
+            background: rgba(core.color(dark), 0.6);
+            padding: 1rem 2rem;
+            border-radius: 0.8rem;
+            backdrop-filter: blur(0.4rem);
+        }
+    }
+
+    &__body {
+        @include core.center;
+        @include core.flexposition(column, center, center);
+        grid-column: 4/7;
+        grid-row: 5/6;
+        &--text {
+            @include comp.text;
+        }
+    }
+}
+
+@keyframes heroPan {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-300rem); }
+}
+

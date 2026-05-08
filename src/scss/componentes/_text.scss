@@ -1,0 +1,12 @@
+@use "../abstract" as core;
+@mixin text{
+    color: core.color(text-light);
+    font-size: core.font-size(m);
+    text-align: left;
+    background: rgba(core.color(dark), 0.5);
+    padding: 2rem;
+    border-left: 0.4rem solid core.color(accent);
+    border-radius: 0.8rem;
+    backdrop-filter: blur(0.3rem);
+    max-width: 90%;
+}

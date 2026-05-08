@@ -1,0 +1,58 @@
+@use "../abstract" as core;
+@use "title" as comptitle;
+@use "text" as comptext;
+@mixin card{
+    display: grid;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(core.color(dark), 0.6), rgba(core.color(background), 0.9));
+    border: 0.1rem solid rgba(core.color(primary), 0.15);
+    box-shadow: 0 1rem 2.5rem rgba(core.color(dark), 0.22);
+    cursor: pointer;
+    position: relative;
+
+    &__img {
+        grid-row: 1 / -1;
+        grid-column: 1;
+        width: 100%;
+        overflow: hidden;
+        transition: transform 0.4s ease;
+
+        &--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+    }
+
+    &__content {
+        grid-row: 1 / -1;
+        grid-column: 1;
+        align-self: end;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(to top, rgba(core.color(dark), 0.95) 60%, transparent);
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+        z-index: 1;
+
+        &__title {
+            &--text {
+                @include comptitle.title;
+            }
+        }
+
+        &__body {
+            &--text {
+                color: core.color(text-light);
+                font-size: core.font-size(m);
+                line-height: 1.7;
+            }
+        }
+    }
+
+}

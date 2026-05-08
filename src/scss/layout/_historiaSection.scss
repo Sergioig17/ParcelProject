@@ -1,0 +1,31 @@
+@use '../abstract' as core;
+@use "../componentes" as comp;
+
+
+.historia {
+    @include core.layout_basico;
+    background: linear-gradient(135deg, rgba(core.color(background), 0.95), rgba(core.color(quaternary), 0.85));
+    padding: 4rem 2rem;
+
+    &__title {
+        @include core.center;
+        @include core.cabeceras;
+        grid-column: 4/7;
+        grid-row: 1/2;  
+
+        &--text {
+            @include comp.title;
+        }
+    }
+
+    &__body {
+        @include core.center;
+        grid-column: 3/8;
+        grid-row: 2/3;
+
+        &--text {
+            @include comp.text;
+            max-width: 95%;
+        }
+    }
+}

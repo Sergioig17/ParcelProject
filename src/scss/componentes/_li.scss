@@ -1,0 +1,25 @@
+@use "../abstract" as core;
+@mixin li{
+    font-size: core.font-size(l);    
+    position: relative;
+    padding: 0.4rem 0;
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: core.color(accent);
+        transition: width 0.35s ease;
+    }
+
+    &:hover{
+        &::after{
+            width: 100%;
+        }
+        color: core.color(accent);
+        text-shadow: 0 0 0.8rem core.color(accent);
+    }
+
+}

@@ -1,0 +1,21 @@
+@use "../abstract" as core;
+@mixin title{
+    @include core.center;
+    @include core.cabeceras;
+   
+    color: core.color(primary);
+    text-shadow: 0 0 1rem core.color(text);
+    font-size: core.font-size(xl);
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 65%;
+        height: 0.3rem;
+        transform: translateX(-50%);
+        background: linear-gradient(90deg, transparent, core.color(accent), transparent);
+    }
+
+}

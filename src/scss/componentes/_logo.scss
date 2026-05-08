@@ -1,0 +1,9 @@
+@use "../abstract" as core;
+
+.logo-img{
+    width: 60%;
+}
+.logo{
+    @include core.center;
+    width: 100%;
+}
